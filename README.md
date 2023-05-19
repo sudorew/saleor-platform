@@ -60,23 +60,23 @@ cd saleor-platform
 
 3. Build the application:
 ```shell
-docker compose build
+docker-compose build
 ```
 
 4. Apply Django migrations:
 ```shell
-docker compose run --rm api python3 manage.py migrate
+docker-compose run --rm api python3 manage.py migrate
 ```
 
 5. Populate the database with example data and create the admin user:
 ```shell
-docker compose run --rm api python3 manage.py populatedb --createsuperuser
+docker-compose run --rm api python3 manage.py populatedb --createsuperuser
 ```
 *Note that `--createsuperuser` argument creates an admin account for `admin@example.com` with the password set to `admin`.*
 
 6. Run the application:
 ```shell
-docker compose up
+docker-compose up
 ```
 
 ## Where is the application running?
@@ -98,19 +98,19 @@ Most of the time both issues can be solved by cleaning up space taken by old con
 
 1. Make sure docker stack is not running
 ```shell
-docker compose stop
+docker-compose stop
 ```
 
 2. Remove existing volumes
 
 **Warning!** Proceeding will remove also your database container! If you need existing data, please remove only services that cause problems! https://docs.docker.com/compose/reference/rm/
 ```shell
-docker compose rm
+docker-compose rm
 ```
 
 3. Build fresh containers 
 ```shell
-docker compose build
+docker-compose build
 ```
 
 4. Now you can run a fresh environment using commands from `How to run it?` section. Done!
@@ -149,15 +149,15 @@ When testing developer releases or making local changes, you might end up in a s
 <p>
 
 ```shell
-docker compose down --volumes db
+docker-compose down --volumes db
 ```
 
 </p>
 </details>
    
 ## How to run application parts?
-  - `docker compose up api worker` for backend services only
-  - `docker compose up` for backend and frontend services
+  - `docker-compose up api worker` for backend services only
+  - `docker-compose up` for backend and frontend services
 
 ## Feedback
 
